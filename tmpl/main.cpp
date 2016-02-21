@@ -11,25 +11,22 @@ public:
 	{
 		z = i;
 	}
-	kkk operator=(const int&  i)
+	bool operator<(const kkk& right)const
 	{
-		z = i;
-		return *this;
-	}
-	bool operator<(const kkk& two)const
-	{
-		return(z < two.z);
+		return(z < right.z);
 	}
 
 	int z;
 
 };
 
-bool cmpa(kkk i, kkk z)
+bool cmpa(const kkk & i, const  kkk & z)
 {
 	return (i<z);
 }
 
+
+/*
 template <class RandomAccessIterator> void sortk(RandomAccessIterator first, RandomAccessIterator last)
 {
 	auto next = first;
@@ -51,7 +48,7 @@ template <class RandomAccessIterator> void sortk(RandomAccessIterator first, Ran
 		}
 	}
 }
-
+//*/
 
 
 template <class RandomAccessIterator, class compare> void sortk(RandomAccessIterator first, RandomAccessIterator last, compare cmp)
