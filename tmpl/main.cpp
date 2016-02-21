@@ -21,6 +21,7 @@ public:
 		return(z < right.z);
 	}
 
+
 	int z;
 
 };
