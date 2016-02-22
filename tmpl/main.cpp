@@ -92,22 +92,25 @@ template <class RandomAccessIterator> void sort(RandomAccessIterator first, Rand
 
 template <class RandomAccessIterator, class compare> void sortk(const RandomAccessIterator & first, const RandomAccessIterator & last, compare cmp)
 {
-	auto next = first;
+	auto next = first+1;
+	auto current = first;
 	bool out = true;
 	while (out)
 	{
 		out = false;
-		next = first;
-		while (next + 1 != last)
+		next = first+1;
+		current = first;
+		while (next != last)
 		{
-			if (cmp(*(next + 1), *(next)))
+			if (cmp(*(next), *(current)))
 			{
-				auto a = *next;
-				*next = *(next + 1);
-				*(next + 1) = a;
+				auto a = *current;
+				*current = *(next);
+				*(next) = a;
 				out = true;
 			}
 			++next;
+			++current;
 		}
 	}
 }
